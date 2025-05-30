@@ -1,0 +1,18 @@
+function ket = marcus_equation(Hab, lambda, deltaG, T, F, RCT, theta)
+  % Constants
+  hbar = 1.0546e-34;  % Reduced Planck constant (J s)
+  k = 1.3806e-23;    % Boltzmann constant (J/K)
+  q = 1.6022e-19;   % Elementary charge (coulombs)
+  
+  % Calculate the charge transfer rate
+  ket = (2*pi/hbar) * abs(Hab)^2 * (1/sqrt(4*pi*lambda*k*T)) * exp(-(lambda + deltaG - q)^2 / (4*lambda*k*T));
+end
+
+% Example usage:
+Hab = 1e-10;       % Electronic coupling matrix element (J)
+lambda = 0.5;      % Reorganization energy (J)
+deltaG = -0.2;     % Standard Gibbs free energy change (J)
+T = 298;          % Temperature (K)
+
+ket = marcus_equation(Hab, lambda, deltaG, T);
+disp(['Charge transfer rate: ', num2str(ket), ' s^-1']);
