@@ -5,6 +5,6 @@ function ket = marcus_equation(Hab, lambda, deltaG, T, F, RCT, theta)
   q = 1.6022e-19;   % Elementary charge (coulomb)
   
   % Calculate the charge transfer rate
-  ket = (2*pi/hbar) * abs(Hab*q)^2 * (1/sqrt(4*pi*lambda*k*T*q)) * exp(-(lambda + deltaG - F * RCT * cos(theta))^2 / (4*lambda*k*T/q));
+  ket = (2*pi/hbar) * abs(Hab*q)^2 * (1/sqrt(4*pi*lambda*k*T*q)) * exp(-(lambda + deltaG - F * RCT * cos(theta)).^2 / (4*lambda*k*T/q));
 end
 

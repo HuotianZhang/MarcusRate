@@ -1,14 +1,9 @@
 % Example usage:
 Hab = 0.01;       % Electronic coupling matrix element (eV)
-lambda = 0.6;      % Reorganization energy (eV)
-deltaG = -0.45;     % Standard Gibbs free energy change (eV)
 T = 298;          % Temperature (K)
-F = 1e6;              % Electric field (V/m)
-RCT = 1e-9;             % Transfer distance (m)
-theta = 0;           % Angle between two dipole (degree)
 
 % Define the range of lambda and deltaG values
-lambda_values = 0.4:0.05:0.8; %eV
+lambda_values = 0.4:0.1:0.8; %eV
 RCT_values = 2:1:20; %nm
 RCT_values = RCT_values/1e9; %convert to m
 

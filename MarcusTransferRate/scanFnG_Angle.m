@@ -6,11 +6,11 @@ Hab = 0.01;       % Electronic coupling matrix element (eV)
 T = 298;          % Temperature (K)
 %F = 1e6;              % Electric field (V/m)
 %RCT = 1e-9;             % Transfer distance (m)
-theta = 0;           % Angle between two dipole (degree)
+% theta = 0;           % Angle between two dipole (degree)
 
 % Define the range of lambda and deltaG values
-F_values = 0:1e6:1e8;
-deltaG_values = 0:0.05:0.45;
+F_values = 0:1e6:5e8;
+deltaG_values = 0.05:0.1:0.45;
 
 % Preallocate the output matrix for efficiency
 ket_matrix = zeros(length(F_values), length(deltaG_values));
