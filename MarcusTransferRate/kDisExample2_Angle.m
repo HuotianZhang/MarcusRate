@@ -20,12 +20,8 @@ for lambda_nums = 1:length(lambda_values)
 for RCT_nums = 1:length(RCT_values)
     lambda = lambda_values(lambda_nums);
     RCT = RCT_values(RCT_nums);
-    % Extract the numeric parts for the variable name
-    lambda_str = strrep(sprintf('%02.0f', lambda*10), '.', ''); % Format Reorganization energy to two digits, remove decimal
-    RCT_str = strrep(sprintf('%02.0f', RCT*1e10), '.', ''); % Format transfer distance to two digits, remove decimal
-
-    % Construct the variable name
-    kLECT_name = ['kLECT' lambda_str RCT_str];
+    % Extract the numeric parts for the variable name and construct the variable name
+    kLECT_name = MarcusHelpers.format_variable_name(lambda, RCT, 'kLECT');
 
     % Calculate ket using the Marcus equation with fixed F and deltaG
     % arrays

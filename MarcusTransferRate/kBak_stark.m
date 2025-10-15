@@ -19,19 +19,15 @@ kCTLE_stark_vars = struct();
 
 
 % Preallocate the output matrix for efficiency
-ket_matrix = zeros(length(F_values), length(deltaG_values));
+ket_matrix = MarcusHelpers.preallocate_ket_matrix(F_values, deltaG_values);
 
 
 for lambda_nums = 1:length(lambda_values)
     lambda = lambda_values(lambda_nums);
-    lambda_str = strrep(sprintf('%02.0f', lambda*10), '.', ''); % Format Reorganization energy to two digits, remove decimal
     for RCT_nums = 1:length(RCT_values)
         RCT = RCT_values(RCT_nums);
-        % Extract the numeric parts for the variable name
-        RCT_str = strrep(sprintf('%02.0f', RCT*1e10), '.', ''); % Format transfer distance to two digits, remove decimal, actu
-    
-        % Construct the variable name
-        kLECT_name = ['kCTLE' lambda_str RCT_str];
+        % Extract the numeric parts for the variable name and construct the variable name
+        kLECT_name = MarcusHelpers.format_variable_name(lambda, RCT, 'kCTLE');
     
         
         % Calculate ket using the Marcus equation with  F and deltaG
@@ -49,7 +45,7 @@ for lambda_nums = 1:length(lambda_values)
             end
         end
             
-        kCTLE = [F_values' ket_matrix];
+        kCTLE = MarcusHelpers.create_result_matrix(F_values, ket_matrix);
         kCTLE_stark_vars.(kLECT_name)=kCTLE;
     end
 end

@@ -31,12 +31,8 @@ end
 % title('Plot of 10 Data Series');
 % %legend('Series 1', 'Series 2', 'Series 3', ..., 'Series 10'); % Add a legend (optional)
 
-% Extract lambda and d_CT values from the field name (or directly from your lambda_values and ct_distance_values)
-lambda_str = field_name(6:7); % Extract lambda (e.g., '06')
-d_ct_str = field_name(8:end); % Extract d_CT (e.g., '15')
-
-lambda = str2double(lambda_str)/10;    % Convert to number (e.g., 0.06)
-d_ct = str2double(d_ct_str)/10;        % Convert to number (e.g., 15)
+% Extract lambda and d_CT values from the field name
+[lambda, d_ct] = MarcusHelpers.parse_variable_name(field_name);
 
 % Create the plot title dynamically
 plot_title = sprintf('{\\it \\lambda} = %.2f eV and {\\it d}_{CT} = %.1f nm', lambda, d_ct);

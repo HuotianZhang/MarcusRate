@@ -13,7 +13,7 @@ F_values = 0:1e6:1e8;
 deltaG_values = 0:0.05:0.45;
 
 % Preallocate the output matrix for efficiency
-ket_matrix = zeros(length(F_values), length(deltaG_values));
+ket_matrix = MarcusHelpers.preallocate_ket_matrix(F_values, deltaG_values);
 
 for F_nums = 1:length(F_values)
 for deltaG_nums = 1:length(deltaG_values)
@@ -31,4 +31,4 @@ for deltaG_nums = 1:length(deltaG_values)
 end
 end
 
-kLECT = [F_values' ket_matrix];
+kLECT = MarcusHelpers.create_result_matrix(F_values, ket_matrix);
