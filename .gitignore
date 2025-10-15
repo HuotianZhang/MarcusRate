@@ -1,0 +1,17 @@
+# MATLAB autosave files
+*.asv
+
+# MATLAB compiled files
+*.mex*
+*.p
+
+# Build artifacts
+*.o
+*.a
+*.so
+*.dylib
+
+# Temporary files
+*~
+*.tmp
+*.temp
